@@ -76,9 +76,17 @@ Lab 2
 
 
 
+Amit		3.110.197.75
+Eswari		52.66.128.64
+Jawahar		65.0.91.154
+Mothiram	65.2.30.226	
+Murali		13.233.95.69
+Priya		13.233.15.37
+Rajani		3.110.147.217
+Raju		3.109.144.98
+Vinay		15.207.108.90
 
-
-
+User Name - centos
 
 
 
