@@ -183,6 +183,44 @@ $ systemctl status datadog-agent
 Step 7 - Validate NGINX Metrices are coming or not at "Metrics Explorer"
 
 
+How to enable process monitoring using Datadog agent?
+----------------------------------------------------
+https://www.devopsschool.com/blog/how-to-enable-live-process-monitoring-in-datadog-agent/
+
+
+=====================================
+How to integrate & monitor docker using datadog? 
+- https://www.devopsschool.com/blog/how-to-enable-docker-container-monitoring-in-datadog-agent/
+
+Step 1 - Install Docker server
+- https://www.devopsschool.com/blog/docker-installation-and-configurations/
+
+Step 2 - Enable Docker integration with Datadog
+
+$ cd /etc/datadog-agent/conf.d/docker.d/
+$ cp conf.yaml.default conf.yaml
+$ vi conf.yaml
+
+ad_identifiers:
+  - _docker
+
+init_config:
+
+instances:
+
+    - url: "unix://var/run/docker.sock"
+      new_tag_names: true
+
+
+
+Step 3 - Create few containers and Verify
+
+$ docker run -itd ubuntu
+$ docker run -itd ubuntu
+$ docker run -itd ubuntu
+
+
+
 
 
 
