@@ -101,6 +101,87 @@ Vinay		3.110.162.161	t6;pcrg3paqYkx2v2iN2BGX%eZgZYQa!
 
 User Admin - administrator
 
+datadog "no authorization token"
+
+While accessing datadog agent,
+
+agent launch-gui
+======================================================================
+How to monitor nginx using Datadog Integration?
+---------------------------------------
+Cond - 1 - You should know <<TOOl>> what you are monitoring?
+Cond - 2 - You should know what Metrices you want from <<TOOl>>
+
+How it works?
+
+
+How to install nginx integration in Datadog?
+
+Step 1 - Install Nginx in Centos 7
+- https://www.devopsschool.com/blog/how-to-install-and-configure-nginx-in-centos-7-rhel-7/
+
+Step 2 - Configure Nginx and start a services
+
+Step 3 - Enable "ngx_http_stub_status_module" in Nginx 
+
+If you use open source NGINX, your instances may lack the stub status module. Verify that your nginx binary includes the module before proceeding to Configuration:
+
+$ nginx -V 2>&1| grep -o http_stub_status_module
+http_stub_status_module
+
+If the command output does not include http_stub_status_module, you must install an NGINX package that includes the module.
+
+
+Step 4 - Configure and Verify a Nginx metrices at http://localhost:81/nginx_status
+
+On each NGINX server, create a status.conf file in the directory that contains your other NGINX configuration files, such as /etc/nginx/conf.d/.
+
+server {
+  listen 81;
+  server_name localhost;
+
+  access_log off;
+  allow 127.0.0.1;
+  deny all;
+
+  location /nginx_status {
+    # Choose your status module
+
+    # freely available with open source NGINX
+    stub_status;
+
+    # for open source NGINX < version 1.7.5
+    # stub_status on;
+
+    # available only with NGINX Plus
+    # status;
+
+    # ensures the version information can be retrieved
+    server_tokens on;
+  }
+}
+
+$ sudo systemctl restart nginx
+$ sudo systemctl status nginx
+
+BROWSER - http://3.110.105.162:81/nginx_status
+Inside a Server - curl http://127.0.0.1:81/nginx_status
+
+Step 5 - Configure Datadog integration configuration file.
+Linux - /etc/datadog-agent/conf.d/nginx.d
+Windows - C:\ProgramData\Datadog\conf.d\nginx.d
+
+- Go into /etc/datadog-agent/conf.d/nginx.d
+- Copy conf.yaml.example into conf.yaml
+- Edit conf.yaml and enable integration
+
+Step 6 - Restart datadog agent & Click on "Install Integration" button on Datadog
+
+$ systemctl restart datadog-agent
+$ systemctl status datadog-agent
+
+Step 7 - Validate NGINX Metrices are coming or not at "Metrics Explorer"
+
 
 
 
