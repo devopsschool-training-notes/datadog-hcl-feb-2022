@@ -1,0 +1,212 @@
+Amit		3.110.161.190
+Eswari		13.232.9.146
+Jawahar		13.234.37.167
+Mothiram	13.233.95.178	
+Murali		3.108.67.189
+Priya		13.234.112.9
+Rajani		13.127.102.245
+Raju		13.233.20.188
+Vinay		15.206.153.215
+
+init_config:
+    - ffff
+    - gggg
+
+init_config:
+    - ffff: dsffds
+    - gggg: sadfsfds
+
+
+init_config:
+======================Agent Troubleshooting=========================
+Agent is Running or running
+	if running
+	- Check a log for possible errors
+
+	if not running
+	- try to start agent
+		- Agent
+		- Trace
+		- Process
+	- Check a log
+	- Check a datadog.yaml
+	- Check a Integ yaml
+	- check API key
+
+Docker - container -- act like a agent
+Kubernetes - pods -- act like a agent
+
+YAML
+	kind: Pod
+===================================================
+[centos@ip-172-31-16-51 conf.d]$ sudo datadog-agent integration show datadog-docker
+Error: could not get current version of datadog-docker: not installed
+[centos@ip-172-31-16-51 conf.d]$ sudo datadog-agent integration install datadog-docker
+Error: operation is disabled for root user. Please run this tool with the agent-running user or add '--allow-root/-r' to force
+[centos@ip-172-31-16-51 conf.d]$ sudo datadog-agent integration install datadog-docker
+
+
+[centos@ip-172-31-16-51 conf.d]$ sudo -u dd-agent -- datadog-agent integration install datadog-vsphere==5.12.1
+
+/opt/datadog-agent/embedded/lib/python3.8/site-packages/datadog_checks/downloader/data/repo/targets/simple/datadog-vsphere/datadog_vsphere-5.12.1-py2.py3-none-any.whl
+Processing /opt/datadog-agent/embedded/lib/python3.8/site-packages/datadog_checks/downloader/data/repo/targets/simple/datadog-vsphere/datadog_vsphere-5.12.1-py2.py3-none-any.whl
+Installing collected packages: datadog-vsphere
+  Attempting uninstall: datadog-vsphere
+    Found existing installation: datadog-vsphere 5.12.0
+    Uninstalling datadog-vsphere-5.12.0:
+      Successfully uninstalled datadog-vsphere-5.12.0
+Successfully installed datadog-vsphere-5.12.1
+Successfully copied configuration file conf.yaml.example
+Successfully installed datadog-vsphere 5.12.1
+[centos@ip-172-31-16-51 conf.d]$
+
+	
+=========================CLUSTOR====================================
+Master
+- API server
+- ETCD
+- Controller mgr
+- Schedular
+- Proxy
+	- Network
+- CoreDNS
+	
+Worker
+- Kubelet
+- Docker
+- Proxy
+	- Network
+
+Workstation
+- kubectl
+
+How to setup k8?
+------------------------
+https://www.devopsschool.com/blog/setting-up-kubernetes-clusters-using-kubeadm-manual-way-in-rhel-7-centos7/
+
+Master 
+13.233.197.202
+
+
+Worker
+
+3.110.106.6
+
+
+
+Your Kubernetes control-plane has initialized successfully!
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+Alternatively, if you are the root user, you can run:
+
+  export KUBECONFIG=/etc/kubernetes/admin.conf
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 172.31.29.98:6443 --token uf64de.kbr119dz0sqqoazm \
+        --discovery-token-ca-cert-hash sha256:918b735b90db7aef7f6aa30e756c0c09fecc0bcb2a0f1b9e5768e392b023facb
+
+
+
+DD_AGENT_MAJOR_VERSION=7 DD_API_KEY=b12ac5e01d4e5858d44d3a68d1c7bbf2 DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script.sh)"
+
+
+kube_apiserver_metrics.d - PROM
+kubernetes_apiserver.d - 
+
+using HELM
+---------------------
+
+
+
+  98  ls
+   99  curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+  100  chmod 700 get_helm.sh
+  101  ./get_helm.sh
+  102  export PATH=$PATH:/usr/local/bin/
+  103  clear
+  104  helm
+  105  clear
+
+
+helm install datadog-agent  --set datadog.apiKey=b12ac5e01d4e5858d44d3a68d1c7bbf2 datadog/datadog --set targetSystem=linux
+================================================
+1 Service === 1 Microservice == 1 FUNCTION
+					- CREATE
+					- READ
+					- Upodate
+					- Delete
+--------------------------------------------------
+LINUX
+	JAVA
+		TOMCAT
+			Deploy APP
+			Deploy APM AGENT
+		--------------------
+		GENERATE A TRAFFIC ON APP using Jmeter
+		Learn all APM graph at Datadog
+		
+=====================================================
+Step 1 - Install java 11
+- https://www.devopsschool.com/blog/complete-guide-of-java-installation-in-linux/
+
+
+Step 2 - Install Tomcat
+https://www.devopsschool.com/blog/tomcat-install-and-configuration-tutorial-and-guide/
+
+Step 3 - Deploy an APP(Fake out)
+	---
+http://13.126.165.36:8080/examples/jsp/jsp2/tagfiles/panel.jsp
+
+Step 4 - Deploy APM Agent
+
+
+java -javaagent:/path/to/dd-java-agent.jar -Ddd.logs.injection=true -jar path/to/your/app.jar
+
+CATALINA_OPTS="$CATALINA_OPTS -javaagent:/opt/ddaget/dd-java-agent.jar -Ddd.service=rajesh"
+
+java -javaagent:/path/to/dd-java-agent.jar -Ddd.logs.injection=true -Ddd.service=rajesh -jar path/to/your/app.jar
+
+
+
+
+Step 5 - Install Jmeter
+https://www.devopsschool.com/blog/how-to-install-and-configure-jemeter/
+
+
+
+Step 6 - Generate a Traffic
+https://www.guru99.com/jmeter-performance-testing.html
+
+http://13.126.165.36:8080/examples/async/async1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
