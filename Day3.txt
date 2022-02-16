@@ -1,0 +1,93 @@
+Amit			3.109.133.17	
+Eswari			52.66.207.12	
+Jawahar			13.233.88.96	
+Mothiram		15.206.159.83		
+Murali			3.108.61.32	
+Priya			15.206.75.103	
+Rajani			35.154.143.238	
+Raju			13.232.29.3	
+Vinay			13.127.128.199	
+
+13.232.133.186
+
+http://13.232.133.186:8080/examples/jsp/jsp2/el/functions.jsp?foo=JSP+2.0
+
+JAVA_HOME = C:\tools\Java\jdk-11.0.8
+
+Total 
+	# 2 X
+	# 4 X
+	# 5 X
+
+-Ddd.version=1.2
+-Ddd.version=1.3
+-Ddd.version=1.4
+
+=============================
+
+ME ---> HIT URL --> RESPONSE
+
+			index.php -> X function -> y function - DB call -> Ext  call --> XSS
+
+
+telnet intake.logs.datadoghq.com 10514
+b12ac5e01d4e5858d44d3a68d1c7bbf2 {"message":"JSON formatted log sent through TCP", "ddtags":"env:dev", "ddsource":"terminal", "hostname":"gs-hostame", "service":"user"}
+
+
+- Monitor a custom file
+$ touch log_file_to_monitor.log
+$ echo "First line of log" >> log_file_to_monitor.log
+$ sudo mkdir /etc/datadog-agent/conf.d/custom_log_collection.d/
+$ sudo touch /etc/datadog-agent/conf.d/custom_log_collection.d/conf.yaml
+logs:
+    - type: file
+      path: /tmp/log_file_to_monitor.log
+      source: custom
+      service: user
+
+$$ touch file
+$$ restart
+$$ echo "First line of log" >> log_file_to_monitor.log
+
+logs:
+  - type: file
+    path: /var/log/apache2/access.log
+    source: apache
+    service: apache
+  - type: file
+    path: /var/log/apache2/error.log
+    source: apache
+    service: apache
+
+
+
+$ sudo service datadog-agent restart
+
+-  Validation. Verify Dsudo datadog-agent status
+atadog Agent Status and Look for "Logs Agent" which is running.
+$
+- Add new logs to the file
+$ echo "New line of log in the log file" >> log_file_to_monitor.log
+
+
+
+
+
+Datadog Log: Setup Apache Log Analsys
+https://www.devopsschool.com/blog/datadog-log-setup-apache-log-analsys/
+
+Datadog Log: Filter logs, Scrub data, Tail with wildcards
+https://www.devopsschool.com/blog/datadog-log-filter-logs-scrub-data-tail-with-wildcards/
+
+Datadog Agent Troubleshooting Guide
+https://www.devopsschool.com/blog/datadog-agent-troubleshooting-guide/
+
+
+DOCKER _ https://www.youtube.com/watch?v=Nuxo3nNV448
+Kubernetes - https://www.youtube.com/watch?v=WbVDRswQ4m8
+ - MORE - https://www.youtube.com/c/TheDevOpsSchool/playlists
+
+
+
+
+
