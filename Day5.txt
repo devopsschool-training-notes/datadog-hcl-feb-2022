@@ -1,0 +1,101 @@
+
+------------------------
+- How to do RUM				- DONE
+- How to manager multiple product/teams - DONE
+- Integration with Notification Channel - PRE LUNCH
+- Four Golden Signals 
+
+
+SIEM
+-------------
+Concept  - SIEM
+---------------------------
+AUDIT - ANALYSE - RUN SOME ALGORITHM
+---------------------------------------
+	 	Security Breach in Data
+					INFRA Metrices				
+					Integ Metrices				
+					Traces
+					Logs
+					Sync
+					RUM
+
+AWS BEST SEC PRACITCES
+	---------
+	VPC
+	IAM
+	SECURITY GROUP
+	NAT GW
+	RT
+	NAT POLICY
+	
+		
+============================
+THREAT MODEL		- STRIDE Threat Modeling
+CODING STANDARD		- CMU SEI -Top 10 Secure Coding Practice		
+CODE SCANN		- SonarQube
+LINTING			- SonarLint
+SAST			- SonarQube | fortify code scan
+DAST			- fortify  | AppScan 
+SCA			= https://www.devopsschool.com/blog/best-tools-for-software-composition-analysis-sca/			- 
+PENTRATION		
+INFRA AUDIT		DATADOG
+	 	Security Breach in Data
+					INFRA Metrices				
+					Integ Metrices				
+					Traces
+					Logs
+					Sync
+					RUM
+=================================================
+
+Rajesh Kumar
+
+www.RajeshKumar.xyz
+
+rajesh@devopsschool.com
+
+DEVOPS
+DEVSECOPS
+SRE
+CLOUD
+CONT
+CI/CD
+MICRSO
+
+
+
+
+			
+
+
+
+-----------------
+Dashboard & Reports
+
+Amit		13.232.147.230				
+Eswari		3.111.157.72				
+Jawahar		3.111.170.90			
+Mothiram	65.1.64.59					
+Murali		52.66.135.201					
+Priya		13.233.89.108					
+Rajani		13.232.123.156					
+Raju		13.127.100.124			
+Vinay		13.127.175.185		
+
+1. Take Graph from Existing APM - INFRA - LOG - SYNC
+2. Take Graph from Metrix Explroer
+3. Create your own GRAPH	
+
+
+
+Sender's email: rajesh@devopsschool.com
+Subject: Env:Test - System at 50% CPU - #test
+Body: This is a test message showing that env:test is at 50% CPU - #test
+
+
+
+event-hl6iymco@dtdg.co
+
+
+event-a3k12fqr@dtdg.co
